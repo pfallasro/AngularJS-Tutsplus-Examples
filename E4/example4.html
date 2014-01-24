@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app>
+<meta charset="uft-8">
+<title></title>
+<meta name="viewport" content="width-device-width">
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+
+<style>
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		font:16px/1.5 sans-serif;
+		color: #222;
+		margin: 5em;
+	}
+</style>
+
+<div>
+	<input type="search" ng-model="search">
+</div>
+
+<div ng-controller="List">
+	<ul>
+		<li ng-repeat="person in people | filter:search">{{person.name}}:{{person.age}}</li>
+	</ul>
+</div>
+
+<script>
+	var List = function($scope){
+		$scope.people = [
+			{name:"Tom", age:10},
+			{name:"Jeffrey", age:10},
+			{name:"Dan", age:10},
+			{name:"David", age:10}
+		];
+	}
+</script>

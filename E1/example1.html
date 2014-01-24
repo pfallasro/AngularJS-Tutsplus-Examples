@@ -1,0 +1,17 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+	  <label>Message:</label>
+      <input type="text" ng-model="yourMessage" placeholder="Enter a message here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+	  <h2>{{yourMessage}}</h2>
+    </div>
+  </body>
+</html>
