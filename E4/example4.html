@@ -15,6 +15,9 @@
 		color: #222;
 		margin: 5em;
 	}
+	.first-true{
+		background-color:red;
+	}
 </style>
 
 <div>
@@ -23,8 +26,28 @@
 
 <div ng-controller="List">
 	<ul>
-		<li ng-repeat="person in people | filter:search">{{person.name}}:{{person.age}}</li>
+		<li ng-repeat="person in people | filter:search">
+			{{person.name}}:{{person.age}}
+			<button ng-click="remove($index)" class="first-{{$first}}">X</button>
+			<span ng-show="$first">First!</span>
+			<span ng-show="$last">Last!</span>
+			<span ng-show="$middle">Middle!</span>
+		</li>
+		
 	</ul>
+	
+	<span>There are {{people.length}} people in the list.</span>
+	
+	<div>
+		<label>Name:</label>
+		<input ng-model="new_name">
+		<br>
+		<label>Age:</label>
+		<input ng-model="new_age" type="number">
+		<br>
+		<button ng-click="add()">Add</button>
+	</div>
+	
 </div>
 
 <script>
@@ -35,5 +58,18 @@
 			{name:"Dan", age:10},
 			{name:"David", age:10}
 		];
-	}
+		
+		$scope.add = function(){
+			$scope.people.push({
+				name:$scope.new_name,
+				age:$scope.new_age
+			});
+			$scope.new_name="";
+			$scope.new_age="";
+		};
+		
+		$scope.remove = function (index){
+			$scope.people.splice(index,1)
+		};
+	};
 </script>
