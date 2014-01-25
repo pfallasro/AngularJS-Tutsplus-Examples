@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<meta charset="uft-8">
+<title></title>
+<meta name="viewport" content="width-device-width">
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+
+<style>
+* {box-sizing:border-box;}
+body{font:14px/1.5 sans-serif;color:#222;margin:3em;}
+</style>
+
+<div ng-controller="Example">
+	{{name}}
+</div>
+
+<script>
+	angular.module('myApp',[])
+	.controller("Example",['$scope',function(s){
+		s.name = "Pablo";
+	}]);
+</script>
