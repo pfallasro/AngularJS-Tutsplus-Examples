@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        * {box-sizing: border-box;}
+        body{font: 14px/1.5 sans-serif; color: #222; margin: 3em;}
+    </style>
+
+    <div ng-controller="Filter">
+        <ul>
+            <li>{{price | currency:'£'}}</li>
+            <li>{{amount | number:2}}</li>
+            <li>{{message | uppercase}}</li>
+            <li>{{message | lowercase}}</li>
+            <li>{{date | date:'yyyy MM dd'}}</li>
+        </ul>
+        <ul>
+            <li ng-repeat="name in names | limitTo:2">{{name}}</li>
+        </ul>
+        <ul>
+            <li ng-repeat="person in people | orderBy:'lastname':true">{{person.firstname}} {{person.lastname}}</li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
+    <script>
+        var Filter = function($scope){
+            $scope.price = 11.50;
+            $scope.amount = 10.123456789;
+            $scope.message = "Hello World";
+            $scope.date = new Date();
+            $scope.names = ["Tom", "Laura", "Zoe", "Jeffrey"];
+            $scope.people = [
+                { firstname:"Tom", lastname:"Ashworth"},
+                { firstname:"Jeffrey", lastname:"Way"},
+                { firstname:"Joe", lastname:"Bloggs"}
+            ];
+        };
+    </script>
+
+</html>

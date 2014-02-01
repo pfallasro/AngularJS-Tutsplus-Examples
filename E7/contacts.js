@@ -23,6 +23,8 @@ angular
 				templateUrl: 'list.html'
 			});
 	})
+
+
 	.controller('Contacts', function($scope){
 		//Contacts is the parent controller, so $scope.contacts
 		//is available in all children
